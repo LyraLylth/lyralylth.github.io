@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>My Clock</title>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+</head>
+<style>
+  body {
+    background-image: url('https://i.pinimg.com/originals/56/2b/74/562b74835dd9fb4f414c8b741f64fc8e.jpg');
+    background-size: 1280px;
+    font-size: 135px;
+    font-family: Verdana, sans-serif;
+    color: #ffffff;
+  }
+</style>
+<body>
+  <center>
+  <div>
+      <span id="hours">00</span> :
+      <span id="minutes">00</span> :
+      <span id="seconds">00</span>
+  </div>
+  <p>
+  </p>
+ </center>
+
+<!------ the script ----->
+
+<script>
+var thesec;
+var themin;
+var thehour;
+
+var thetimer = setInterval(function(){
+
+  thetime = new Date();
+  thesec = thetime.getSeconds();
+  themin = thetime.getMinutes();
+  thehour = thetime.getHours();
+  
+  thesec = formatTwoDigits(thesec);
+  themin = formatTwoDigits(themin);
+  thehour = formatTwoDigits(thehour);
+  
+  $('#seconds').html(thesec);
+  $('#minutes').html(themin);
+  $('#hours').html(thehour);
+
+}, 1000);
+
+function killTimer() {
+  clearInterval(thetimer);
+}
+
+function formatTwoDigits(n){
+    if(n > 9) {
+      return "" + n;
+
+    } else {
+      return "0" + n;
+
+    }
+}
+</script>
+
+<!------ the script ----->
+
+
+
+</body>
+</html>
